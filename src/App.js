@@ -2,8 +2,7 @@ import './App.css';
 import React from 'react'
 import validator from '@rjsf/validator-ajv8';
 import schema from './constants/moochub-schema.json'
-import Form from '@rjsf/core';
-import { UiSchema } from '@rjsf/utils';
+import Form from '@rjsf/mui';
 
 
 function App() {
@@ -31,7 +30,7 @@ const clearForm = () => {
 }
 
   return (
-    <div>
+    <div className="App-wrapper">
       <button onClick={clearForm}>Clear Form</button>
 
       <Form
