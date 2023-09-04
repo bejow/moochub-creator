@@ -1,0 +1,94 @@
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  transition: 300ms;
+}
+
+.newCourseBtn{
+  background-color: #bbb;
+
+}
+
+.menuToggleBtn {
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1;
+}
+
+.burgerImg {
+  width: 18px;
+  height: 18px;
+  margin-bottom: -4px;
+}
+
+.newCourseInput{
+  position: relative;
+  width: 156px;
+  color: black !important;
+  padding-right: 24px !important;
+  &:hover{
+    background-color: white  !important;
+  }
+}
+
+.addBtn{
+  position: absolute;
+  font-size: 28px;
+  right: 6px;
+  top: 3px;
+  cursor: pointer;
+}
+
+/* Sidebar links */
+.sidebar .navItem {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.navItem {
+  cursor: pointer;
+}
+/* Active/current link */
+.sidebar .navItem .active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.active{
+  background-color: #04aa6d;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar .navItem:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+  transition: 300ms;
+}
+
+.hide {
+  margin-left: -200px;
+}
+
+.expand {
+  margin-left: 0;
+}
