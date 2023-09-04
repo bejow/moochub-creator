@@ -7,15 +7,12 @@ import {
   createSearchParams,
   useSearchParams,
 } from "react-router-dom";
-import useIsMobile from "../../utils/hooks/useIsMobile";
-import { isSizeMobile } from "../../utils/screensize";
 import styles from "./Layout.module.scss";
 import classNames from "classnames";
 import useClickOutside from "../../utils/hooks/useClickOutside";
 
 export default function Layout() {
-  const { size, isMobile } = useIsMobile();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [hideSidebar, setHideSidebar] = useState(false);
   const [courses, setCourses] = useState(
     JSON.parse(localStorage.getItem("courses")) || {}
@@ -112,7 +109,7 @@ export default function Layout() {
           className={styles.burgerImg}
           onClick={toggleSidebar}
           src="./assets/burger.png"
-          alt="my image"
+          alt="menu button"
         />
       </button>
       <div
@@ -130,7 +127,7 @@ export default function Layout() {
           >
             <div
               className={classNames(styles.navItem, {
-                [styles.active]: courseName == currentCourseName,
+                [styles.active]: courseName === currentCourseName,
               })}
             >
               {courseName}

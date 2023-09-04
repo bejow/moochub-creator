@@ -1,23 +1,21 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-jsonschema-form";
 import validateFormData from "react-jsonschema-form/lib/validate";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import schema from "../../constants/moochub-schema.json";
 
-export const MoochubEditor = ({}) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+export const MoochubEditor = () => {
+  const [searchParams] = useSearchParams();
   const currentCourseName = searchParams.get("course");
   var courses = JSON.parse(localStorage.getItem("courses"));
   var currentCourse = courses[currentCourseName];
   const navigate = useNavigate();
 
-  const [formState, setFormstate] = React.useState(currentCourse || null);
+  const [formState, setFormstate] = useState(currentCourse || null);
 
   useEffect(() => {
-    courses = JSON.parse(localStorage.getItem("courses"));
-    currentCourse = courses[currentCourseName];
     setFormstate(currentCourse);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentCourseName]);
 
   useEffect(() => {
@@ -25,6 +23,7 @@ export const MoochubEditor = ({}) => {
       "courses",
       JSON.stringify({ ...courses, [currentCourseName]: formState })
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formState]);
 
   const downloadJsonFile = () => {
