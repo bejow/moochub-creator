@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Form from "react-jsonschema-form";
-import validateFormData from "react-jsonschema-form/lib/validate";
+import Form from '@rjsf/mui';
+import validator from '@rjsf/validator-ajv8'
 import { useNavigate, useSearchParams } from "react-router-dom";
 import schema from "../../constants/moochub-schema.json";
 
@@ -64,7 +64,7 @@ export const MoochubEditor = () => {
         schema={schema}
         formData={formState}
         onChange={onChange}
-        validator={validateFormData}
+        validator={validator}
         onSubmit={downloadJsonFile}
 
       />
